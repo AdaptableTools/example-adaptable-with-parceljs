@@ -1,0 +1,35 @@
+{
+  "name": "example-adaptable-with-parceljs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo of the Adaptable - using parceljs as build tool for quick setup",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "node if-netlify-build.js",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "minify": "webpack",
+    "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaptableTools/example-adaptable-with-parceljs.git"
+  },
+  "author": "JonnyAdaptableTools",
+  "bugs": {
+    "url": "https://github.com/AdaptableTools/example-adaptable-with-parceljs/issues"
+  },
+  "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
+  "dependencies": {
+    "@adaptabletools/adaptable": "11.0.0-canary.2",
+    "@adaptabletools/adaptable-plugin-finance": "11.0.0-canary.2",
+    "@ag-grid-community/all-modules": "26.2.0",
+    "@ag-grid-enterprise/all-modules": "26.2.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "typescript": "4.0.7",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
+}
