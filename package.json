@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "11.0.0-canary.2",
-    "@adaptabletools/adaptable-plugin-finance": "11.0.0-canary.2",
+    "@adaptabletools/adaptable": "11.0.0",
+    "@adaptabletools/adaptable-plugin-finance": "11.0.0",
     "@ag-grid-community/all-modules": "26.2.0",
     "@ag-grid-enterprise/all-modules": "26.2.0",
     "parcel-bundler": "^1.12.4"
