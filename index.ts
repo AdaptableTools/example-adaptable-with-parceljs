@@ -1,6 +1,6 @@
 import { AllEnterpriseModules, ColDef } from "@ag-grid-enterprise/all-modules";
 
-import Adaptable from "@adaptabletools/adaptable/agGrid";
+
 import "@adaptabletools/adaptable/index.css";
 import "@adaptabletools/adaptable/themes/dark.css";
 
@@ -14,6 +14,7 @@ import finance from "@adaptabletools/adaptable-plugin-finance";
 
 import { AdaptableOptions } from "@adaptabletools/adaptable/types";
 import {dateParseragGrid, shortDateFormatteragGrid} from "./utils";
+import Adaptable,{AdaptableBooleanExpressionFunctions} from "@adaptabletools/adaptable/agGrid";
 
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
