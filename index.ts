@@ -1,22 +1,53 @@
-import { AllEnterpriseModules, ColDef } from "@ag-grid-enterprise/all-modules";
+// ag-grid css
+import "@ag-grid-community/core/dist/styles/ag-grid.css";
+import "@ag-grid-community/core/dist/styles/ag-theme-balham.css";
+import "@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css";
 
+// ag-grid code
+import { ColDef, Module } from "@ag-grid-community/core";
 
+import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
+import { SideBarModule } from "@ag-grid-enterprise/side-bar";
+import { ColumnsToolPanelModule } from "@ag-grid-enterprise/column-tool-panel";
+import { FiltersToolPanelModule } from "@ag-grid-enterprise/filter-tool-panel";
+import { StatusBarModule } from "@ag-grid-enterprise/status-bar";
+import { MenuModule } from "@ag-grid-enterprise/menu";
+import { RangeSelectionModule } from "@ag-grid-enterprise/range-selection";
+import { RichSelectModule } from "@ag-grid-enterprise/rich-select";
+import { ExcelExportModule } from "@ag-grid-enterprise/excel-export";
+import { GridChartsModule } from "@ag-grid-enterprise/charts";
+import { SparklinesModule } from "@ag-grid-enterprise/sparklines";
+import { RowGroupingModule } from "@ag-grid-enterprise/row-grouping";
+import { ClipboardModule } from "@ag-grid-enterprise/clipboard";
+
+// adaptable css
 import "@adaptabletools/adaptable/index.css";
 import "@adaptabletools/adaptable/themes/dark.css";
 
-import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-alpine-dark.css";
-
+// adaptable code
+import Adaptable from "@adaptabletools/adaptable/agGrid";
 import finance from "@adaptabletools/adaptable-plugin-finance";
+import type { AdaptableOptions } from "@adaptabletools/adaptable/types";
 
-import { AdaptableOptions } from "@adaptabletools/adaptable/types";
-import {dateParseragGrid, shortDateFormatteragGrid} from "./utils";
-import Adaptable,{AdaptableBooleanExpressionFunctions} from "@adaptabletools/adaptable/agGrid";
+import { dateParseragGrid, shortDateFormatteragGrid } from "./utils";
 
-const columnDefs = [
+const RECOMMENDED_MODULES: Module[] = [
+  ClientSideRowModelModule,
+  SideBarModule,
+  ColumnsToolPanelModule,
+  FiltersToolPanelModule,
+  StatusBarModule,
+  MenuModule,
+  RangeSelectionModule,
+  RichSelectModule,
+  ExcelExportModule,
+  GridChartsModule,
+  SparklinesModule,
+  RowGroupingModule,
+  ClipboardModule,
+];
+
+const columnDefs: ColDef[] = [
   { field: "OrderId", type: "abColDefNumber" },
   { field: "CompanyName", type: "abColDefString" },
   { field: "ContactName", type: "abColDefString" },
@@ -36,7 +67,7 @@ const columnDefs = [
     },
     valueParser: dateParseragGrid,
     valueFormatter: shortDateFormatteragGrid,
-  }
+  },
 ].map((c: ColDef) => {
   c.floatingFilter = true;
   c.filter = true;
@@ -58,35 +89,35 @@ const adaptableOptions: AdaptableOptions = {
     columnDefs,
     rowData: null,
   },
-  modules: AllEnterpriseModules,
+
   predefinedConfig: {
     Theme: {
       Revision: 3,
       CurrentTheme: "light",
     },
-    Layout:{
-      Revision:Date.now()
-    }
+    Layout: {
+      Revision: Date.now(),
+    },
   },
-  notificationsOptions:{
+  notificationsOptions: {
     showProgressBar: true,
-  }
+  },
 };
-Adaptable.init(adaptableOptions).then((api) => {
-  // we simulate server loading - on AdaptableReady event
-  api.eventApi.on("AdaptableReady", () => {
-    console.log("Adaptable Ready!");
-    // we load the json orders
-    import("./orders.json")
-      .then((data) => data.default)
-      .then((data) => {
-        // add an extra timeout
-        setTimeout(() => {
-          // and then set the correct row data
-          adaptableOptions.gridOptions!.api!.setRowData(data);
-        }, 500);
-      });
-  });
-});
-
-
+Adaptable.init(adaptableOptions, { agGridModules: RECOMMENDED_MODULES }).then(
+  (api) => {
+    // we simulate server loading - on AdaptableReady event
+    api.eventApi.on("AdaptableReady", () => {
+      console.log("Adaptable Ready!");
+      // we load the json orders
+      import("./orders.json")
+        .then((data) => data.default)
+        .then((data) => {
+          // add an extra timeout
+          setTimeout(() => {
+            // and then set the correct row data
+            adaptableOptions.gridOptions!.api!.setRowData(data);
+          }, 500);
+        });
+    });
+  }
+);
