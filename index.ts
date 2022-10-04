@@ -1,19 +1,12 @@
-import { ColDef } from '@ag-grid-community/core';
-
-import '@adaptabletools/adaptable/index.css';
-import '@adaptabletools/adaptable/themes/dark.css';
-
+// AG Grid css
 import '@ag-grid-community/core/dist/styles/ag-grid.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-balham.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
 
-import finance from '@adaptabletools/adaptable-plugin-finance';
-
-import { AdaptableOptions } from '@adaptabletools/adaptable/types';
-import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
-import Adaptable from '@adaptabletools/adaptable/agGrid';
+// AG Grid code
+import { Module, ColDef } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -23,11 +16,21 @@ import { ClipboardModule } from '@ag-grid-enterprise/clipboard';
 import { FiltersToolPanelModule } from '@ag-grid-enterprise/filter-tool-panel';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
 import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
-import { Module } from '@ag-grid-community/core';
 import { SideBarModule } from '@ag-grid-enterprise/side-bar';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { RangeSelectionModule } from '@ag-grid-enterprise/range-selection';
 import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
+
+// Adaptable css
+import '@adaptabletools/adaptable/index.css';
+import '@adaptabletools/adaptable/themes/dark.css';
+
+// Adaptable code
+import Adaptable from '@adaptabletools/adaptable/agGrid';
+import finance from '@adaptabletools/adaptable-plugin-finance';
+import { AdaptableOptions } from '@adaptabletools/adaptable/types';
+
+import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
 
 const columnDefs: ColDef[] = [
   { field: 'OrderId', type: 'abColDefNumber' },
