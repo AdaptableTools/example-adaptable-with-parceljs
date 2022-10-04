@@ -5,7 +5,6 @@
   "description": "Demo of the Adaptable - using parceljs as build tool for quick setup",
   "main": "index.js",
   "scripts": {
-    "preinstall": "node if-netlify-build.js",
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "minify": "webpack",
@@ -21,14 +20,28 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "12.2.0",
-    "@adaptabletools/adaptable-plugin-finance": "12.2.0",
-    "@ag-grid-community/all-modules": "27.3.0",
-    "@ag-grid-enterprise/all-modules": "27.3.0",
+    "@adaptabletools/adaptable": "13.0.0",
+    "@adaptabletools/adaptable-plugin-finance": "13.0.0",
+    "@ag-grid-community/client-side-row-model": "28.1.1",
+    "@ag-grid-community/core": "28.1.1",
+    "@ag-grid-enterprise/charts": "28.1.1",
+    "@ag-grid-enterprise/clipboard": "28.1.1",
+    "@ag-grid-enterprise/column-tool-panel": "28.1.1",
+    "@ag-grid-enterprise/excel-export": "28.1.1",
+    "@ag-grid-enterprise/filter-tool-panel": "28.1.1",
+    "@ag-grid-enterprise/menu": "28.1.1",
+    "@ag-grid-enterprise/range-selection": "28.1.1",
+    "@ag-grid-enterprise/rich-select": "28.1.1",
+    "@ag-grid-enterprise/row-grouping": "28.1.1",
+    "@ag-grid-enterprise/server-side-row-model": "^28.1.1",
+    "@ag-grid-enterprise/side-bar": "28.1.1",
+    "@ag-grid-enterprise/sparklines": "28.1.1",
+    "@ag-grid-enterprise/status-bar": "28.1.1",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
-    "typescript": "4.0.7",
+    "prettier": "^2.7.1",
+    "typescript": "4.6.4",
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10"
   }

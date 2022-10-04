@@ -1,8 +1,8 @@
 const Adaptable = window.Adaptable;
-
+const agGridModules = window.agGridModules;
 
 const dateParserAgGrid = (params) => {
-  const stringToDate = (date, format, delimiter)=> {
+  const stringToDate = (date, format, delimiter) => {
     const formatLowerCase = format.toLowerCase();
     const formatItems = formatLowerCase.split(delimiter);
     const dateItems = date.split(delimiter);
@@ -12,12 +12,12 @@ const dateParserAgGrid = (params) => {
     let month = parseInt(dateItems[monthIndex], 10);
     month -= 1;
     const formatedDate = new Date(
-        parseInt(dateItems[yearIndex], 10),
-        month,
-        parseInt(dateItems[dayIndex], 10)
+      parseInt(dateItems[yearIndex], 10),
+      month,
+      parseInt(dateItems[dayIndex], 10)
     );
     return formatedDate;
-  }
+  };
 
   try {
     if (params.newValue instanceof Date) {
@@ -25,10 +25,7 @@ const dateParserAgGrid = (params) => {
     }
     return stringToDate(params.newValue, 'dd/mm/yyyy', '/');
   } catch (ex) {
-    console.error(
-        `Error parsing the date value: ${params.newValue} and node : `,
-        params.node
-    );
+    console.error(`Error parsing the date value: ${params.newValue} and node : `, params.node);
     return null;
   }
 };
@@ -41,53 +38,48 @@ const shortDateFormatterAgGrid = (params) => {
       return shortDateFormatter.format(params.value);
     }
   } catch (ex) {
-    console.error(
-        `Error formatting the date for value: ${params.value} and node : `,
-        params.node
-    );
+    console.error(`Error formatting the date for value: ${params.value} and node : `, params.node);
   }
   return null;
 };
 
-
-
 const columnDefs = [
-  { field: "OrderId", type: "abColDefNumber" },
+  { field: 'OrderId', type: 'abColDefNumber' },
   {
-    field: "CompanyName",
+    field: 'CompanyName',
 
-    type: "abColDefString",
+    type: 'abColDefString',
   },
   {
-    field: "ContactName",
-    type: "abColDefString",
+    field: 'ContactName',
+    type: 'abColDefString',
   },
   {
-    field: "Employee",
-    type: "abColDefString",
+    field: 'Employee',
+    type: 'abColDefString',
   },
   {
-    field: "InvoicedCost",
-    type: "abColDefNumber",
-    valueFormatter: "x.toLocaleString()",
+    field: 'InvoicedCost',
+    type: 'abColDefNumber',
+    valueFormatter: 'x.toLocaleString()',
   },
   {
-    field: "OrderDate",
-    type: "abColDefDate",
+    field: 'OrderDate',
+    type: 'abColDefDate',
     editable: true,
     cellEditorParams: {
       useFormatter: true,
     },
     valueParser: dateParserAgGrid,
     valueFormatter: shortDateFormatterAgGrid,
-  }
+  },
 ];
 
 const adaptableOptions = {
-  primaryKey: "OrderId",
-  userName: "Demo User",
-  adaptableId: "Simple Demo",
-  licenseKey: "TODO ADD YOUR LICENSE KEY HERE",
+  primaryKey: 'OrderId',
+  userName: 'Demo User',
+  adaptableId: 'Simple Demo',
+  licenseKey: 'TODO ADD YOUR LICENSE KEY HERE',
 
   gridOptions: {
     columnDefs,
@@ -104,9 +96,9 @@ const adaptableOptions = {
   predefinedConfig: {},
 };
 
-Adaptable.init(adaptableOptions).then((api) => {
+Adaptable.init(adaptableOptions, { agGridModules }).then((api) => {
   // we simulate server loading - on AdaptableReady event
-  api.eventApi.on("AdaptableReady", () => {
+  api.eventApi.on('AdaptableReady', () => {
     // we load the json orders
     // import("./orders.json")
     new Promise((resolve) => {
@@ -123,4 +115,3 @@ Adaptable.init(adaptableOptions).then((api) => {
       });
   });
 });
-

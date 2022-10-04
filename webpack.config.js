@@ -1,15 +1,25 @@
-const path = require("path");
+const path = require('path');
 
-module.exports = {
-  entry: "./ab.js",
-  output: {
-    path: path.resolve(__dirname, "minified"),
-    filename: "ab.js"
+module.exports = [
+  {
+    entry: './agGridConfig.js',
+    output: {
+      path: path.resolve(__dirname, 'minified'),
+      filename: 'agGridBundle.umd.js',
+      library: ['agGrid'],
+      libraryTarget: 'umd',
+    },
   },
-  externals: [
-    {
-      "@ag-grid-community/all-modules": "agGrid",
-      "@ag-grid-enterprise/all-modules": "agGrid"
-    }
-  ]
-};
+  {
+    entry: './adaptableConfig.js',
+    output: {
+      path: path.resolve(__dirname, 'minified'),
+      filename: 'adaptableBundle.js',
+    },
+    externals: [
+      {
+        '@ag-grid-community/core': 'agGrid',
+      },
+    ],
+  },
+];
