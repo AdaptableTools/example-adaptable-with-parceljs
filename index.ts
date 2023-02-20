@@ -1,9 +1,7 @@
 // AG Grid css
-import '@ag-grid-community/core/dist/styles/ag-grid.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-balham.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-balham-dark.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
+import '@ag-grid-community/styles/ag-grid.css';
+import '@ag-grid-community/styles/ag-theme-balham.css';
+import '@ag-grid-community/styles/ag-theme-alpine.css';
 
 // AG Grid code
 import { Module, ColDef } from '@ag-grid-community/core';
