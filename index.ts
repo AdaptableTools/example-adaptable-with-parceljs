@@ -4,7 +4,7 @@ import '@ag-grid-community/styles/ag-theme-balham.css';
 import '@ag-grid-community/styles/ag-theme-alpine.css';
 
 // AG Grid code
-import { Module, ColDef } from '@ag-grid-community/core';
+import { Module, ColDef, GridOptions } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
@@ -18,6 +18,7 @@ import { SideBarModule } from '@ag-grid-enterprise/side-bar';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { RangeSelectionModule } from '@ag-grid-enterprise/range-selection';
 import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
+import orders from './orders.json';
 
 // Adaptable css
 import '@adaptabletools/adaptable/index.css';
@@ -25,7 +26,6 @@ import '@adaptabletools/adaptable/themes/dark.css';
 
 // Adaptable code
 import Adaptable from '@adaptabletools/adaptable/agGrid';
-import finance from '@adaptabletools/adaptable-plugin-finance';
 import { AdaptableOptions } from '@adaptabletools/adaptable/types';
 
 import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
@@ -57,21 +57,19 @@ const columnDefs: ColDef[] = [
   return c;
 });
 
+const gridOptions: GridOptions = {
+  sideBar: true,
+  enableRangeSelection: true,
+  columnDefs,
+  rowData: null,
+};
+
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'OrderId',
   userName: 'Demo User',
   adaptableId: 'Simple Demo',
   licenseKey: 'TODO ADD HERE YOUR LICENSE KEY',
 
-  // call the plugins functions and pass them to the plugins array in the AdaptableOptions object
-  plugins: [finance()],
-
-  gridOptions: {
-    sideBar: true,
-    enableRangeSelection: true,
-    columnDefs,
-    rowData: null,
-  },
   predefinedConfig: {
     Theme: {
       Revision: 3,
@@ -102,19 +100,12 @@ const agGridModules: Module[] = [
   ClipboardModule,
 ];
 
-Adaptable.init(adaptableOptions, { agGridModules }).then((api) => {
+Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
   api.eventApi.on('AdaptableReady', () => {
     console.log('Adaptable Ready!');
-    // we load the json orders
-    import('./orders.json')
-      .then((data) => data.default)
-      .then((data) => {
-        // add an extra timeout
-        setTimeout(() => {
-          // and then set the correct row data
-          adaptableOptions.gridOptions!.api!.setRowData(data);
-        }, 500);
-      });
+    setTimeout(() => {
+      gridOptions.api!.setRowData(orders);
+    }, 500);
   });
 });
