@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "minify": "webpack",
+    "minify": "export NODE_OPTIONS=--openssl-legacy-provider && webpack",
     "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 "
   },
   "repository": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^17.0.0",
+    "@adaptabletools/adaptable": "^18.0.0-canary.3",
     "@ag-grid-community/client-side-row-model": "^30.2.1",
     "@ag-grid-community/core": "^30.2.1",
     "@ag-grid-community/styles": "^30.2.1",
