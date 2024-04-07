@@ -109,7 +109,7 @@ const gridOptions = {
 };
 Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
-  api.eventApi.on('AdaptableReady', () => {
+  api.eventApi.on('AdaptableReady', ({ adaptableApi }) => {
     // we load the json orders
     // import("./orders.json")
     new Promise((resolve) => {
@@ -121,7 +121,7 @@ Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((
         // add an extra timeout
         setTimeout(() => {
           // and then set the correct row data
-          gridOptions.api.setRowData(data);
+          adaptableApi.gridApi.addGridData(data);
         }, 500);
       });
   });
