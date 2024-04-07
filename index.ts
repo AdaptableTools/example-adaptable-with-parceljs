@@ -102,10 +102,10 @@ const agGridModules: Module[] = [
 
 Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
-  api.eventApi.on('AdaptableReady', () => {
+  api.eventApi.on('AdaptableReady', ({ adaptableApi }) => {
     console.log('Adaptable Ready!');
     setTimeout(() => {
-      gridOptions.api!.setRowData(orders);
+      adaptableApi.gridApi.addGridData(orders);
     }, 500);
   });
 });

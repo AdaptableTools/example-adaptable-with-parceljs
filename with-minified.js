@@ -78,27 +78,38 @@ const columnDefs = [
 const adaptableOptions = {
   primaryKey: 'OrderId',
   userName: 'Demo User',
-  adaptableId: 'Simple Demo',
-  licenseKey: 'TODO ADD YOUR LICENSE KEY HERE',
+  adaptableId: 'Simple Adaptable Demo.',
+  // licenseKey: 'TODO ADD YOUR LICENSE KEY HERE',
+  licenseKey: '',
 
-  gridOptions: {
-    columnDefs,
-    columnTypes: {
-      abColDefNumber: {},
-      abColDefString: {},
-      abColDefBoolean: {},
-      abColDefDate: {},
-      abColDefNumberArray: {},
-      abColDefObject: {},
+  predefinedConfig: {
+    Layout: {
+      CurrentLayout: 'Sorted Layout',
+      Layouts: [
+        {
+          Columns: ['OrderId', 'CompanyName', 'ContactName', 'Employee', 'InvoicedCost'],
+          Name: 'Default App Layout',
+        },
+      ],
     },
-    rowData: null,
   },
-  predefinedConfig: {},
 };
 
-Adaptable.init(adaptableOptions, { agGridModules }).then((api) => {
+const gridOptions = {
+  columnDefs,
+  columnTypes: {
+    abColDefNumber: {},
+    abColDefString: {},
+    abColDefBoolean: {},
+    abColDefDate: {},
+    abColDefNumberArray: {},
+    abColDefObject: {},
+  },
+  rowData: null,
+};
+Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
-  api.eventApi.on('AdaptableReady', () => {
+  api.eventApi.on('AdaptableReady', ({ adaptableApi }) => {
     // we load the json orders
     // import("./orders.json")
     new Promise((resolve) => {
@@ -110,7 +121,7 @@ Adaptable.init(adaptableOptions, { agGridModules }).then((api) => {
         // add an extra timeout
         setTimeout(() => {
           // and then set the correct row data
-          adaptableOptions.gridOptions.api.setRowData(data);
+          adaptableApi.gridApi.addGridData(data);
         }, 500);
       });
   });
