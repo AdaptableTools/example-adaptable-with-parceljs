@@ -21,12 +21,12 @@ import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
 import orders from './orders.json';
 
 // Adaptable css
-import '@adaptabletools/adaptable-cjs/index.css';
-import '@adaptabletools/adaptable-cjs/themes/dark.css';
+import '@adaptabletools/adaptable/index.css';
+import '@adaptabletools/adaptable/themes/dark.css';
 
 // Adaptable code
-import Adaptable from '@adaptabletools/adaptable-cjs/agGrid';
-import { AdaptableOptions } from '@adaptabletools/adaptable-cjs/types';
+import Adaptable from '@adaptabletools/adaptable/agGrid';
+import { AdaptableOptions } from '@adaptabletools/adaptable/types';
 
 import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
 
