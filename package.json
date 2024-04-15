@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^18.0.0-canary",
+    "@adaptabletools/adaptable": "^18.0.0",
     "@ag-grid-community/client-side-row-model": "~31.1.0",
     "@ag-grid-community/core": "~31.1.0",
     "@ag-grid-community/styles": "~31.1.0",

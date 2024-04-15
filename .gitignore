@@ -68,3 +68,4 @@ dist
 yarn.lock
 
 /minified
+.history
