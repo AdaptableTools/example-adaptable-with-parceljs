@@ -8,7 +8,7 @@ export * from '@ag-grid-enterprise/menu';
 export * from '@ag-grid-enterprise/range-selection';
 export * from '@ag-grid-enterprise/rich-select';
 export * from '@ag-grid-enterprise/excel-export';
-export * from '@ag-grid-enterprise/charts';
+export * from '@ag-grid-enterprise/charts-enterprise';
 export * from '@ag-grid-enterprise/sparklines';
 export * from '@ag-grid-enterprise/row-grouping';
 export * from '@ag-grid-enterprise/clipboard';

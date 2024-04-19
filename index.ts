@@ -9,7 +9,7 @@ import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-mod
 import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
 import { MenuModule } from '@ag-grid-enterprise/menu';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
-import { GridChartsModule } from '@ag-grid-enterprise/charts';
+import { GridChartsModule } from '@ag-grid-enterprise/charts-enterprise';
 import { ClipboardModule } from '@ag-grid-enterprise/clipboard';
 import { FiltersToolPanelModule } from '@ag-grid-enterprise/filter-tool-panel';
 import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
@@ -62,6 +62,7 @@ const gridOptions: GridOptions = {
   enableRangeSelection: true,
   columnDefs,
   rowData: null,
+  enableCharts: true,
 };
 
 const adaptableOptions: AdaptableOptions = {

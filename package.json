@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^18.0.0",
+    "@adaptabletools/adaptable": "^18.0.2",
     "@ag-grid-community/client-side-row-model": "~31.1.0",
     "@ag-grid-community/core": "~31.1.0",
     "@ag-grid-community/styles": "~31.1.0",
-    "@ag-grid-enterprise/charts": "~31.1.0",
+    "@ag-grid-enterprise/charts-enterprise": "~31.1.0",
     "@ag-grid-enterprise/clipboard": "~31.1.0",
     "@ag-grid-enterprise/column-tool-panel": "~31.1.0",
     "@ag-grid-enterprise/excel-export": "~31.1.0",
