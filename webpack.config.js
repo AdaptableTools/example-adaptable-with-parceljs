@@ -34,10 +34,22 @@ module.exports = [
       filename: 'adaptableBundle.js',
       libraryTarget: 'umd',
     },
-
     externals: [
       {
         '@ag-grid-community/core': 'agGrid',
+        '@ag-grid-community/client-side-row-model': 'agGrid',
+        '@ag-grid-enterprise/side-bar': 'agGrid',
+        '@ag-grid-enterprise/column-tool-panel': 'agGrid',
+        '@ag-grid-enterprise/filter-tool-panel': 'agGrid',
+        '@ag-grid-enterprise/status-bar': 'agGrid',
+        '@ag-grid-enterprise/menu': 'agGrid',
+        '@ag-grid-enterprise/range-selection': 'agGrid',
+        '@ag-grid-enterprise/rich-select': 'agGrid',
+        '@ag-grid-enterprise/excel-export': 'agGrid',
+        '@ag-grid-enterprise/charts-enterprise': 'agGrid',
+        '@ag-grid-enterprise/sparklines': 'agGrid',
+        '@ag-grid-enterprise/row-grouping': 'agGrid',
+        '@ag-grid-enterprise/clipboard': 'agGrid',
       },
     ],
   },

@@ -11,7 +11,7 @@ import { MenuModule } from '@ag-grid-enterprise/menu';
 import { RangeSelectionModule } from '@ag-grid-enterprise/range-selection';
 import { RichSelectModule } from '@ag-grid-enterprise/rich-select';
 import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
-import { GridChartsModule } from '@ag-grid-enterprise/charts';
+import { GridChartsModule } from '@ag-grid-enterprise/charts-enterprise';
 import { SparklinesModule } from '@ag-grid-enterprise/sparklines';
 import { RowGroupingModule } from '@ag-grid-enterprise/row-grouping';
 import { ClipboardModule } from '@ag-grid-enterprise/clipboard';

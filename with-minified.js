@@ -107,6 +107,7 @@ const gridOptions = {
   },
   rowData: null,
   enableCharts: true,
+  enableRangeSelection: true,
 };
 Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
