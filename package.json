@@ -8,7 +8,8 @@
     "dev": "parcel index.html --no-cache",
     "build": "parcel build index.html",
     "minify": "export NODE_OPTIONS=--openssl-legacy-provider && webpack",
-    "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 "
+    "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 ",
+    "serve-minified-aggrid": "open http://localhost:1234/with-minified-aggrid && npx serve . -p 1234 "
   },
   "repository": {
     "type": "git",
