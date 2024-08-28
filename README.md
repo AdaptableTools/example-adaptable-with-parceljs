@@ -4,6 +4,13 @@ Demo of AdapTable - using parceljs as build tool for quick setup
 
 This demo is using TypeScript for convenience - but it could easily be just JavaScript.
 
+## Versions and Dependencies
+
+The demo is built using these key packages:
+
+- [AdapTable](https://docs.adaptabletools.com/) version 19
+- [AG Grid](https://www.ag-grid.com) version 32.1
+
 ## Installation
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
