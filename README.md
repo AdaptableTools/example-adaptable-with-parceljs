@@ -8,8 +8,8 @@ This demo is using TypeScript for convenience - but it could easily be just Java
 
 The demo is built using these key packages:
 
-- [AdapTable](https://docs.adaptabletools.com/) version 19
-- [AG Grid](https://www.ag-grid.com) version 32.1
+- [AdapTable](https://docs.adaptabletools.com/) version 21.x
+- [AG Grid](https://www.ag-grid.com) version 34.x
 
 ## Installation
 
