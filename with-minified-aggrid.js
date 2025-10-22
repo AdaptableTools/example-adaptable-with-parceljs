@@ -1,7 +1,3 @@
-const Adaptable = window.Adaptable;
-const agGridModules = window.agGridModules;
-const agGridTheme = window.agGridTheme;
-
 const dateParserAgGrid = (params) => {
   const stringToDate = (date, format, delimiter) => {
     const formatLowerCase = format.toLowerCase();
@@ -67,47 +63,19 @@ const columnDefs = [
   },
 ];
 
-const adaptableOptions = {
-  primaryKey: 'OrderId',
-  userName: 'Demo User',
-  adaptableId: 'Simple Adaptable Demo',
-  // licenseKey: 'TODO ADD YOUR LICENSE KEY HERE',
-  licenseKey: '',
-
-  initialState: {
-    Layout: {
-      CurrentLayout: 'Sorted Layout',
-      Layouts: [
-        {
-          Columns: ['OrderId', 'CompanyName', 'ContactName', 'Employee', 'InvoicedCost'],
-          Name: 'Default App Layout',
-        },
-      ],
-    },
-  },
-};
-
 const gridOptions = {
-  theme: agGridTheme,
+  theme: 'legacy',
   columnDefs,
   rowData: null,
+  enableCharts: true,
+  enableRangeSelection: true,
 };
-Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
-  // we simulate server loading - on AdaptableReady event
-  api.eventApi.on('AdaptableReady', ({ adaptableApi }) => {
-    // we load the json orders
-    // import("./orders.json")
-    new Promise((resolve) => {
-      setTimeout(() => resolve({ default: window.orders }), 1000);
-    })
-      .then((data) => data.default)
-      .then((data) => {
-        console.log(data);
-        // add an extra timeout
-        setTimeout(() => {
-          // and then set the correct row data
-          adaptableApi.gridApi.addGridData(data);
-        }, 500);
-      });
-  });
+
+// setup the grid after the page has finished loading
+document.addEventListener('DOMContentLoaded', function () {
+  const gridDiv = document.querySelector('#grid');
+  const api = agGrid.createGrid(gridDiv, gridOptions);
+  setTimeout(() => {
+    api.setGridOption('rowData', window.orders);
+  }, 1000);
 });

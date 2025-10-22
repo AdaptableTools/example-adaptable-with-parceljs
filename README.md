@@ -47,9 +47,9 @@ to launch a webserver that serves the generated `dist` folder - now go to [local
 
 ## Running with minified script
 
-This repo also shows how you can minify AdapTable - for this, run `npm run minify` - this runs webpack (see config in `webpack.config.js`) on :
+This repo also shows how you can minify AdapTable - for this, run `npm run build:minified` - this runs webpack (see config in `webpack.config.js`) on :
  - `agGridConfig.js` file found in the root folder. The script generates `minified/agGridBundle.umd.js` - a minified bundle of several AG Grid modules, see [the AG Grid documentation](https://www.ag-grid.com/javascript-data-grid/modules-building/) for details
- - `adaptableConfig.js` file found in the root folder. The script generates `minified/adaptableBundle.js` - a minified version of AdapTable, which contains all the dependencies that AdapTable needs to work properly, excluding the `@ag-grid-community/core` peer dependency package which is provided by the previous `agGridBundle.umd.js` file
+ - `adaptableConfig.js` file found in the root folder. The script generates `minified/adaptableBundle.js` - a minified version of AdapTable, which contains all the dependencies that AdapTable needs to work properly, excluding the `ag-grid-enterprise` peer dependency package which is provided by the previous `agGridBundle.umd.js` file
 
 Then, in order to use the minified version, you can run `npm run serve-minified` - which simply runs a webserver in the current folder - now you can open [localhost:1234/with-minified](http://localhost:1234/with-minified.html)
 

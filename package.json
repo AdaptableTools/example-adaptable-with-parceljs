@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "parcel index.html --no-cache",
     "build": "parcel build index.html",
-    "minify": "export NODE_OPTIONS=--openssl-legacy-provider && webpack",
-    "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 "
+    "build:minified": "webpack",
+    "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234",
+    "serve-minified-aggrid": "open http://localhost:1234/with-minified-aggrid && npx serve . -p 1234 "
   },
   "repository": {
     "type": "git",
@@ -19,29 +20,15 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^19.0.0",
-    "@ag-grid-community/client-side-row-model": "~32.1.0",
-    "@ag-grid-community/core": "~32.1.0",
-    "@ag-grid-community/styles": "~32.1.0",
-    "@ag-grid-enterprise/charts": "~32.1.0",
-    "@ag-grid-enterprise/clipboard": "~32.1.0",
-    "@ag-grid-enterprise/column-tool-panel": "~32.1.0",
-    "@ag-grid-enterprise/excel-export": "~32.1.0",
-    "@ag-grid-enterprise/filter-tool-panel": "~32.1.0",
-    "@ag-grid-enterprise/menu": "~32.1.0",
-    "@ag-grid-enterprise/range-selection": "~32.1.0",
-    "@ag-grid-enterprise/rich-select": "~32.1.0",
-    "@ag-grid-enterprise/row-grouping": "~32.1.0",
-    "@ag-grid-enterprise/server-side-row-model": "~32.1.0",
-    "@ag-grid-enterprise/side-bar": "~32.1.0",
-    "@ag-grid-enterprise/sparklines": "~32.1.0",
-    "@ag-grid-enterprise/status-bar": "~32.1.0",
-    "parcel": "^2.11.0"
+    "@adaptabletools/adaptable": "^21.0.8",
+    "ag-grid-enterprise": "~34.0.2"
   },
   "devDependencies": {
+    "parcel": "2.15.4",
     "prettier": "^2.7.1",
     "typescript": "4.6.4",
-    "webpack": "^4.41.3",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "terser-webpack-plugin": "^5.3.10"
   }
 }
