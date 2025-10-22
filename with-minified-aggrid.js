@@ -41,28 +41,19 @@ const shortDateFormatterAgGrid = (params) => {
 };
 
 const columnDefs = [
-  { field: 'OrderId', type: 'abColDefNumber' },
-  {
-    field: 'CompanyName',
-
-    type: 'abColDefString',
-  },
-  {
-    field: 'ContactName',
-    type: 'abColDefString',
-  },
-  {
-    field: 'Employee',
-    type: 'abColDefString',
-  },
+  { field: 'OrderId', cellDataType: 'number' },
+  { field: 'CompanyName', cellDataType: 'text' },
+  { field: 'ContactName', cellDataType: 'text' },
+  { field: 'Employee', cellDataType: 'text' },
   {
     field: 'InvoicedCost',
-    type: 'abColDefNumber',
+    editable: true,
+    cellDataType: 'number',
     valueFormatter: 'x.toLocaleString()',
   },
   {
     field: 'OrderDate',
-    type: 'abColDefDate',
+    cellDataType: 'date',
     editable: true,
     cellEditorParams: {
       useFormatter: true,
@@ -73,15 +64,8 @@ const columnDefs = [
 ];
 
 const gridOptions = {
+  theme: 'legacy',
   columnDefs,
-  columnTypes: {
-    abColDefNumber: {},
-    abColDefString: {},
-    abColDefBoolean: {},
-    abColDefDate: {},
-    abColDefNumberArray: {},
-    abColDefObject: {},
-  },
   rowData: null,
   enableCharts: true,
   enableRangeSelection: true,

@@ -1,20 +1,48 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const defaults = {
+  mode: 'production',
   resolve: {
-    extensions: ['*', '.mjs', '.js', '.json'],
+    extensions: ['.mjs', '.js', '.json'],
   },
   module: {
     rules: [
       {
         test: /\.mjs$/,
-        include: /node_modules/,
-        type: 'javascript/auto',
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
+        test: /\.js$/,
+        resolve: {
+          fullySpecified: false,
+        },
+        include: [path.resolve(__dirname, 'node_modules/@adaptabletools')],
       },
     ],
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: false,
+          },
+        },
+      }),
+    ],
+  },
+  performance: {
+    maxAssetSize: 1000000, // 1MB in bytes
+    maxEntrypointSize: 1000000, // 1MB in bytes
+    hints: 'warning', // 'error', 'warning', or false
+  },
 };
 
+// Rest of your configuration remains the same
 module.exports = [
   {
     ...defaults,
@@ -22,8 +50,17 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, 'minified'),
       filename: 'agGridBundle.umd.js',
-      library: ['agGrid'],
-      libraryTarget: 'umd',
+      library: {
+        name: 'agGrid',
+        type: 'umd',
+      },
+      globalObject: 'this',
+      clean: false,
+    },
+    performance: {
+      maxAssetSize: 3000000,
+      maxEntrypointSize: 3000000,
+      hints: 'warning',
     },
   },
   {
@@ -32,25 +69,19 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, 'minified'),
       filename: 'adaptableBundle.js',
-      libraryTarget: 'umd',
-    },
-    externals: [
-      {
-        '@ag-grid-community/core': 'agGrid',
-        '@ag-grid-community/client-side-row-model': 'agGrid',
-        '@ag-grid-enterprise/side-bar': 'agGrid',
-        '@ag-grid-enterprise/column-tool-panel': 'agGrid',
-        '@ag-grid-enterprise/filter-tool-panel': 'agGrid',
-        '@ag-grid-enterprise/status-bar': 'agGrid',
-        '@ag-grid-enterprise/menu': 'agGrid',
-        '@ag-grid-enterprise/range-selection': 'agGrid',
-        '@ag-grid-enterprise/rich-select': 'agGrid',
-        '@ag-grid-enterprise/excel-export': 'agGrid',
-        '@ag-grid-enterprise/charts-enterprise': 'agGrid',
-        '@ag-grid-enterprise/sparklines': 'agGrid',
-        '@ag-grid-enterprise/row-grouping': 'agGrid',
-        '@ag-grid-enterprise/clipboard': 'agGrid',
+      library: {
+        type: 'umd',
       },
-    ],
+      globalObject: 'this',
+      clean: false,
+    },
+    externals: {
+      'ag-grid-enterprise': 'agGrid',
+    },
+    performance: {
+      maxAssetSize: 5000000,
+      maxEntrypointSize: 5000000,
+      hints: 'warning',
+    },
   },
 ];

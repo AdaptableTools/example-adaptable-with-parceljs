@@ -1,5 +1,6 @@
 const Adaptable = window.Adaptable;
 const agGridModules = window.agGridModules;
+const agGridTheme = window.agGridTheme;
 
 const dateParserAgGrid = (params) => {
   const stringToDate = (date, format, delimiter) => {
@@ -44,28 +45,19 @@ const shortDateFormatterAgGrid = (params) => {
 };
 
 const columnDefs = [
-  { field: 'OrderId', type: 'abColDefNumber' },
-  {
-    field: 'CompanyName',
-
-    type: 'abColDefString',
-  },
-  {
-    field: 'ContactName',
-    type: 'abColDefString',
-  },
-  {
-    field: 'Employee',
-    type: 'abColDefString',
-  },
+  { field: 'OrderId', cellDataType: 'number' },
+  { field: 'CompanyName', cellDataType: 'text' },
+  { field: 'ContactName', cellDataType: 'text' },
+  { field: 'Employee', cellDataType: 'text' },
   {
     field: 'InvoicedCost',
-    type: 'abColDefNumber',
+    editable: true,
+    cellDataType: 'number',
     valueFormatter: 'x.toLocaleString()',
   },
   {
     field: 'OrderDate',
-    type: 'abColDefDate',
+    cellDataType: 'date',
     editable: true,
     cellEditorParams: {
       useFormatter: true,
@@ -78,11 +70,11 @@ const columnDefs = [
 const adaptableOptions = {
   primaryKey: 'OrderId',
   userName: 'Demo User',
-  adaptableId: 'Simple Adaptable Demo.',
+  adaptableId: 'Simple Adaptable Demo',
   // licenseKey: 'TODO ADD YOUR LICENSE KEY HERE',
   licenseKey: '',
 
-  predefinedConfig: {
+  initialState: {
     Layout: {
       CurrentLayout: 'Sorted Layout',
       Layouts: [
@@ -96,18 +88,9 @@ const adaptableOptions = {
 };
 
 const gridOptions = {
+  theme: agGridTheme,
   columnDefs,
-  columnTypes: {
-    abColDefNumber: {},
-    abColDefString: {},
-    abColDefBoolean: {},
-    abColDefDate: {},
-    abColDefNumberArray: {},
-    abColDefObject: {},
-  },
   rowData: null,
-  enableCharts: true,
-  enableRangeSelection: true,
 };
 Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
