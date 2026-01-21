@@ -8,7 +8,7 @@ This demo is using TypeScript for convenience - but it could easily be just Java
 
 The demo is built using these key packages:
 
-- [AdapTable](https://docs.adaptabletools.com/) version 21.x
+- [AdapTable](https://www.adaptabletools.com) version 21.x
 - [AG Grid](https://www.ag-grid.com) version 34.x
 
 ## Installation
@@ -57,7 +57,7 @@ In order to modify the demo, you can edit the [with-minified.html](./with-minifi
 
 ## Licences
 
-An AdapTable Licence provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
+An [AdapTable Licence](https://www.adaptabletools.com/buy/buying-adaptable-licensing) provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
 
 Licences can be purchased individually, for a team, for an organisation or for integratn into software for onward sale.
 
@@ -67,13 +67,9 @@ Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) for
 
 ## Help
 
-Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://docs.adaptabletools.com).  
+Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://www.adaptabletools.com/docs).  
 
 Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable.
-
-## Demo
-
-To see AdapTable in action visit our [Demo Site](https://www.adaptabletools.com/demos) which contains a few larger demos.
 
 ## More Information
 
