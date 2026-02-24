@@ -1,14 +1,10 @@
-// AG Grid code
 import { Module, ColDef, GridOptions, AllEnterpriseModule, themeQuartz } from 'ag-grid-enterprise';
 import orders from './orders.json';
 
-// Adaptable css
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
 
-// Adaptable code
-import Adaptable from '@adaptabletools/adaptable/agGrid';
-import { AdaptableOptions } from '@adaptabletools/adaptable/types';
+import { Adaptable, AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable';
 
 import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
 
@@ -82,8 +78,12 @@ const adaptableOptions: AdaptableOptions = {
 
 const agGridModules: Module[] = [AllEnterpriseModule];
 
-Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
-  // we simulate server loading - on AdaptableReady event
+const agGridConfig: AgGridConfig = {
+  modules: agGridModules,
+  gridOptions,
+};
+
+Adaptable.init(adaptableOptions, agGridConfig).then((api) => {
   api.eventApi.on('AdaptableReady', ({ adaptableApi }) => {
     console.log('Adaptable Ready!');
     setTimeout(() => {

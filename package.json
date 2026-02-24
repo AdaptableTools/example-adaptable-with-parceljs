@@ -4,8 +4,8 @@
   "private": true,
   "description": "Demo of the Adaptable - using parceljs as build tool for quick setup",
   "scripts": {
-    "dev": "parcel index.html --no-cache",
-    "build": "parcel build index.html",
+    "dev": "parcel --no-source-maps --no-cache index.html",
+    "build": "parcel build --no-source-maps index.html",
     "build:minified": "webpack",
     "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234",
     "serve-minified-aggrid": "open http://localhost:1234/with-minified-aggrid && npx serve . -p 1234 "
@@ -20,13 +20,14 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "^21.0.8",
-    "ag-grid-enterprise": "~34.0.2"
+    "@adaptabletools/adaptable": "~22.0.0",
+    "ag-grid-enterprise": "35.0.1"
   },
   "devDependencies": {
     "parcel": "2.15.4",
     "prettier": "^2.7.1",
-    "typescript": "4.6.4",
+    "process": "^0.11.10",
+    "typescript": "4.9.5",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "terser-webpack-plugin": "^5.3.10"
