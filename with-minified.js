@@ -45,9 +45,9 @@ const shortDateFormatterAgGrid = (params) => {
 };
 
 const columnDefs = [
-  { field: 'OrderId', cellDataType: 'number' },
-  { field: 'CompanyName', cellDataType: 'text' },
-  { field: 'ContactName', cellDataType: 'text' },
+  { field: 'OrderId', cellDataType: 'number', filter: true },
+  { field: 'CompanyName', cellDataType: 'text', menuTabs: [] },
+  { field: 'ContactName', cellDataType: 'text', menuTabs: ['generalMenuTab'] },
   { field: 'Employee', cellDataType: 'text' },
   {
     field: 'InvoicedCost',
@@ -91,6 +91,7 @@ const gridOptions = {
   theme: agGridTheme,
   columnDefs,
   rowData: null,
+  columnMenu: 'legacy',
 };
 Adaptable.init(adaptableOptions, { modules: agGridModules, gridOptions }).then((api) => {
   // we simulate server loading - on AdaptableReady event
