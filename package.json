@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptable-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptable": "~22.0.0",
+    "@adaptabletools/adaptable": "22.0.5",
     "ag-grid-enterprise": "35.0.1"
   },
   "devDependencies": {

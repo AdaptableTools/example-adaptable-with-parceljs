@@ -1,8 +1,11 @@
-import { Module, ColDef, GridOptions, AllEnterpriseModule, themeQuartz } from 'ag-grid-enterprise';
+import { Module, ColDef, GridOptions, AllEnterpriseModule } from 'ag-grid-enterprise';
 import orders from './orders.json';
 
 import '@adaptabletools/adaptable/index.css';
 import '@adaptabletools/adaptable/themes/dark.css';
+
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 import { Adaptable, AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable';
 
@@ -36,7 +39,7 @@ const columnDefs: ColDef[] = [
 });
 
 const gridOptions: GridOptions = {
-  theme: themeQuartz,
+  theme: 'legacy',
   sideBar: true,
   cellSelection: true,
   columnDefs,
