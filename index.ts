@@ -2,11 +2,9 @@ import { Module, ColDef, GridOptions, AllEnterpriseModule, themeQuartz } from 'a
 import orders from './orders.json';
 
 import '@adaptabletools/adaptable/index.css';
-import '@adaptabletools/adaptable/themes/dark.css';
 
 import { Adaptable, AdaptableOptions, AgGridConfig } from '@adaptabletools/adaptable';
 
-import { dateParseragGrid, shortDateFormatteragGrid } from './utils';
 
 const columnDefs: ColDef[] = [
   { field: 'OrderId', cellDataType: 'number' },
@@ -26,8 +24,6 @@ const columnDefs: ColDef[] = [
     cellEditorParams: {
       useFormatter: true,
     },
-    valueParser: dateParseragGrid,
-    valueFormatter: shortDateFormatteragGrid,
   },
 ].map((c: ColDef) => {
   c.floatingFilter = true;
@@ -46,8 +42,8 @@ const gridOptions: GridOptions = {
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'OrderId',
   userName: 'Demo User',
-  adaptableId: 'Simple Demo',
-  licenseKey: 'TODO ADD HERE YOUR LICENSE KEY',
+  adaptableId: 'Simple ParcelJS Demo',
+  licenseKey: '', //TODO ADD HERE YOUR LICENSE KEY
 
   initialState: {
     Theme: {
@@ -70,9 +66,6 @@ const adaptableOptions: AdaptableOptions = {
         },
       ],
     },
-  },
-  notificationsOptions: {
-    showProgressBar: true,
   },
 };
 
